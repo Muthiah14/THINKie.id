@@ -1,0 +1,142 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+.container {
+  background-color: #fff;
+  color: #000;
+  width: 400px;
+  border-radius: 10px;
+  padding: 20px;
+}
+.icons {
+  display: flex;
+  align-items: center; /* sejajarkan vertikal */
+  gap: 12px; /* kasih jarak antar item */
+}
+.header {
+  display: flex;
+  justify-content: space-between; /* bagi kiri - kanan */
+  align-items: center; /* rata tengah vertikal */
+  padding: 15px 9px;
+  background: #fff;
+  border-bottom: 1px solid #ddd;
+}
+
+.fa-square-plus {
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #000;
+  margin-top: 15px;
+}
+add-btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 15px;
+  height: 15px;
+  background-color: rgba(255, 255, 255, 0.15);
+  border-top-right-radius: 12px;
+}
+.profile-image {
+  width: 31px;
+  height: 31px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.fa-bell {
+  font-size: 29px;
+  text-decoration: none;
+  color: #000;
+  padding-left: 230px;
+}
+.top-bar {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.icon-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+}
+
+.fa-note-sticky {
+  width: 40px;
+  height: 50px;
+  justify-content: space-between;
+  align-items: center;
+}
+.avatar {
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+}
+
+.greeting h2 {
+  font-size: 18px;
+  font-weight: bold;
+  padding: 10px;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  border-radius: 25px;
+  overflow: hidden;
+  border: 1px solid #ccc;
+}
+
+.search-bar input {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  outline: none;
+  color: #ccc;
+}
+
+.search-bar button {
+  background-color: #000;
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  cursor: pointer;
+}
+
+.menu-icons {
+  display: flex;
+  justify-content: center;
+  gap: 0;
+}
+
+.icon-box {
+  margin-top: 30px;
+  color: #fff;
+  font-size: 20px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  border-radius: 25px;
+  background-color: #000;
+  width: 115px;
+  height: 115px;
+}
+
+.section-title {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
