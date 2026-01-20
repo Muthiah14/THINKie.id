@@ -2,29 +2,29 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Support\Str;
 
 class User extends Authenticatable
 {
-    /** @use HasFactory<\Database\Factories\UserFactory> */
-    use HasFactory, Notifiable;
-
     /**
-     * The attributes that are mass assignable.
+     * Kolom yang bisa diisi mass-assignment.
      *
      * @var list<string>
      */
     protected $fillable = [
-        'name',
         'email',
         'password',
+        // 'username',
+        // 'bio',
+        // 'profile', // path foto profil
     ];
 
     /**
-     * The attributes that should be hidden for serialization.
+     * Kolom yang disembunyikan saat serialisasi.
      *
      * @var list<string>
      */
@@ -34,9 +34,9 @@ class User extends Authenticatable
     ];
 
     /**
-     * Get the attributes that should be cast.
+     * Casting kolom ke tipe data tertentu.
      *
-     * @return array<string, string>
+     * @var array<string, string>
      */
     protected function casts(): array
     {
@@ -45,4 +45,19 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    /**
+     * Buat username random jika kosong.
+     */
+    // protected static function boot()
+    // {
+    //     parent::boot();
+
+    //     static::creating(function ($user) {
+    //         if (empty($user->username)) {
+    //             // contoh: user_ab12cd
+    //             $user->username = 'user_' . Str::lower(Str::random(6));
+    //         }
+    //     });
+    // }
 }

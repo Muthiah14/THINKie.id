@@ -11,7 +11,7 @@
 <body>
   <div class="container">
     <div class="form-box">
-      <a href="{{ route('welcome') }}" class="back-btn">
+      <a href="{{ url('/') }}" class="back-btn">
         <i class="fas fa-arrow-left"></i>
       </a>
 

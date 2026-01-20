@@ -10,26 +10,28 @@ use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
-    public function register(Request $request)
-    {
-        $validator = Validator::make($request->all(), [
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:8',
-        ]);
+public function register(Request $request)
+{
+    $validator = Validator::make($request->all(), [
+        'email' => 'required|email|max:255|unique:users,email',
+        'password' => 'required|string|min:8|confirmed',
+    ]);
 
-        if ($validator->fails()) {
-            return back()->withErrors($validator)->withInput();
-        }
-
-        $user = User::create([
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-        ]);
-
-        Auth::login($user);
-
-        return redirect()->route('login.form')->with('success', 'Berhasil Register, silakan login.');
+    if ($validator->fails()) {
+        return back()->withErrors($validator)->withInput();
     }
+
+    $user = User::create([
+        'email' => $request->email,
+        'password' => Hash::make($request->password),
+    ]);
+
+    // Tidak perlu auto login kalau alurnya Register → Login
+    // Auth::login($user);
+
+    return redirect()->route('login.form')
+        ->with('success', 'Berhasil Register, silakan login.');
+}
 
     public function login(Request $request)
     {

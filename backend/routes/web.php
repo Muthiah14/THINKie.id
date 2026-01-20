@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 
-// Welcome
+// Welcome (halaman pertama)
 Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
@@ -23,4 +23,4 @@ Route::post('/login', [AuthController::class, 'login'])->name('login');
 // Dashboard
 Route::get('/dashboard', function () {
     return view('dashboard');
-})->name('dashboard')->middleware('auth');
+})->middleware('auth')->name('dashboard');
