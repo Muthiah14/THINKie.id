@@ -29,7 +29,7 @@
                     <i class="fa-solid fa-square-plus"></i>
                 </a>
                 <a href="{{ url('editProfile') }}">
-                    <img src="{{ asset('pct/profile.jpeg') }}" alt="img" class="profile-image">
+                    <img src="{{ auth()->user()->image ? asset(auth()->user()->image) . '?' . time() : asset('pct/profile.jpeg') }}" alt="img" class="profile-image">
                 </a>
                 <a href="{{ url('project/notification') }}">
                     <i class="fa-solid fa-bell"></i>

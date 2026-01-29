@@ -27,7 +27,7 @@
 
             <div class="profile-container">
                 <img
-                  src="{{ Auth::user()->profile ? asset(Auth::user()->profile) : asset('pct/profile.jpeg') }}"
+                  src="{{ auth()->user()->image ? asset(auth()->user()->image) . '?' . time() : asset('pct/profile.jpeg') }}"
                   alt="profile"
                   class="profile-img"
                   id="profileImage"
