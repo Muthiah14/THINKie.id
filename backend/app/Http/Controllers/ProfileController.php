@@ -40,9 +40,10 @@ class ProfileController extends Controller
         if ($request->hasFile('profile')) {
             $filename = time() . '.' . $request->profile->extension();
             $request->profile->move(public_path('uploads/profile'), $filename);
-            $user->profile = 'uploads/profile/' . $filename;
+            $user->image = 'uploads/profile/' . $filename;
         }
-
+/** @var \App\Models\User $user */
+$user = Auth::user();
         // simpan perubahan
         $user->save();
 

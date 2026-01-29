@@ -31,6 +31,7 @@ public function register(Request $request)
 
     return redirect()->route('login.form')
         ->with('success', 'Berhasil Register, silakan login.');
+        
 }
 
     public function login(Request $request)
@@ -61,3 +62,5 @@ public function register(Request $request)
         return redirect()->route('login.form')->with('success', 'Berhasil Logout');
     }
 }
+
+

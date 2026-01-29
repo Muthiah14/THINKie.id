@@ -35,7 +35,7 @@
                     <i class="fa-solid fa-bell"></i>
                 </a>
                 <br><br>
-                <h1>HELLO, {{ Auth::user()->name ?? 'KIE' }}</h1>
+                <h1>HELLO, {{ Auth::user()->username ?? 'New User' }}</h1>
                 <p>How are you today?</p>
             </div>
         </header>

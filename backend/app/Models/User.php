@@ -18,10 +18,21 @@ class User extends Authenticatable
     protected $fillable = [
         'email',
         'password',
-        // 'username',
-        // 'bio',
-        // 'profile', // path foto profil
+        'username',
+        'bio',
+        'image', // path foto profil
     ];
+    protected static function boot()
+{
+    parent::boot();
+
+    static::creating(function ($user) {
+        if (empty($user->username)) {
+            // Ini akan otomatis terisi saat register
+            $user->username = 'user_' . Str::lower(Str::random(6));
+        }
+    });
+}
 
     /**
      * Kolom yang disembunyikan saat serialisasi.
@@ -46,18 +57,5 @@ class User extends Authenticatable
         ];
     }
 
-    /**
-     * Buat username random jika kosong.
-     */
-    // protected static function boot()
-    // {
-    //     parent::boot();
 
-    //     static::creating(function ($user) {
-    //         if (empty($user->username)) {
-    //             // contoh: user_ab12cd
-    //             $user->username = 'user_' . Str::lower(Str::random(6));
-    //         }
-    //     });
-    // }
 }
