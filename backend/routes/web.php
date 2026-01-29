@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProfileController;
 
+
 // Welcome (halaman pertama)
 Route::get('/', function () {
     return view('welcome');
@@ -26,7 +27,7 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware('auth')->name('dashboard');
 
-// Pastikan dibungkus middleware auth supaya hanya yang login bisa akses
+// UpdateProfile
 Route::middleware('auth')->group(function () {
     // Halaman form edit
     Route::get('/editProfile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -34,3 +35,4 @@ Route::middleware('auth')->group(function () {
     // Proses update data
     Route::post('/editProfile', [ProfileController::class, 'update'])->name('profile.update');
 });
+
