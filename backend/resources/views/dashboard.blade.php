@@ -49,12 +49,12 @@
         <!-- Icon buttons -->
         <div class="icon-row">
             <div class="icon-box">
-                <a href="{{ url('project/optionnote') }}">
+                <a href="{{ url('option') }}">
                     <img src="{{ asset('pct/Group 165.png') }}" alt="">
                 </a>
             </div>
             <div class="icon-box">
-                <a href="{{ url('project/optionlist') }}">
+                <a href="{{ url('optionlist') }}">
                     <img src="{{ asset('pct/list.png') }}" alt="">
                 </a>
             </div>

@@ -142,32 +142,59 @@ add-btn::after {
   margin-bottom: 10px;
 }
 .overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  backdrop-filter: blur(3px);
-  background: rgba(0, 0, 0, 0.3);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 100;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Hitam transparan */
+    display: none; /* Muncul lewat JS */
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
 }
 
+/* Kotak hitam pop-up */
 .popup {
-  background: #111;
-  padding: 50px;
-  border-radius: 10px;
-  display: flex;
-  gap: 15px;
+    background-color: #1a1a1a; /* Warna gelap sesuai gambar */
+    padding: 40px;
+    border-radius: 20px;
+    width: 80%;
+    max-width: 400px;
+    text-align: center;
 }
-.popup button {
-  padding: 10px 20px;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  font-weight: bold;
-  font-size: 20px;
-  background: #fff;
+
+/* Container untuk tombol agar sejajar horizontal */
+.popup-content {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+/* Gaya tombol Private & Public */
+.popup-content .btn {
+    background-color: white; /* Tombol warna putih */
+    color: black; /* Teks warna hitam */
+    padding: 15px 30px;
+    border-radius: 12px;
+    text-decoration: none; /* Hapus garis bawah biru */
+    font-weight: bold;
+    font-size: 18px;
+    flex: 1; /* Biar ukuran tombol sama rata */
+    transition: 0.3s;
+}
+
+.popup-content .btn:hover {
+    background-color: #ddd;
+}
+
+/* Gaya tombol Cancel */
+#closePopup {
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    background: none;
+    border: none;
+    font-size: 16px;
 }
