@@ -2,10 +2,18 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class note extends Model
+class Note extends Model
 {
-    // Baris ini wajib ada agar Laravel mengizinkan penyimpanan data
-    protected $fillable = ['user_id', 'content', 'status'];
+    use HasFactory;
+
+    // Tambahkan ini agar bisa menyimpan data
+    protected $fillable = [
+        'user_id',
+        'title',
+        'content',
+        'status',
+    ];
 }
