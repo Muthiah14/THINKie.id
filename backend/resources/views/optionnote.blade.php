@@ -54,13 +54,17 @@
     </div>
 
     <div class="overlay" onclick="window.location.href='{{ url('/dashboard') }}'">
-        <div class="popup" onclick="event.stopPropagation()">
+        {{-- <div class="popup" onclick="event.stopPropagation()">
             <a href="{{ url('/private-note') }}">
                 <button class="btn btn-private">Private</button>
             </a>
             <a href="{{ url('/public-note') }}">
                 <button class="btn btn-public">Public</button>
             </a>
+        </div> --}}
+        <div class="popup-content">
+            <a href="{{ route('note.private') }}" class="btn">Private</a>
+            <a href="{{ route('note.public') }}" class="btn">Public</a>
         </div>
     </div>    <script>
         const overlay = document.getElementById('popupOverlay');

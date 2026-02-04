@@ -14,11 +14,11 @@ return new class extends Migration
         Schema::create('notes', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->string('title')->nullable();
-            $table->text('content')->nullable();
-            $table->enum('status', ['private', 'public']); // Pilihan dari pop-up
+            $table->string('title')->nullable(); // TAMBAHKAN INI
+            $table->text('content');
+            $table->enum('status', ['private', 'public']);
             $table->timestamps();
-        });
+    });
     }
 
     /**
