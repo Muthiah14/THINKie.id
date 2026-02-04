@@ -85,8 +85,9 @@ body {
   z-index: 50;
   width: 100%;
   max-width: 420px;
-  justify-content: center;
+  justify-content: space-between  ;
   pointer-events: none;
+  padding: 10px;
 }
 /*TOOLBAR BOX*/
 .toolbar {

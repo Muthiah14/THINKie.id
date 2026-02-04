@@ -16,13 +16,19 @@
         <input type="hidden" name="content" id="hiddenContent">
 
         <div class="editor-panel">
-            <div class="topbar">
-                <button type="submit" style="background:none; border:none; color:white; cursor:pointer;">
-                    <i class="fa-solid fa-floppy-disk" title="Save Note"></i>
-                </button>
+                <div class="topbar">
+            <button type="submit" style="background:none; border:none; color:white; cursor:pointer;">
+                <i class="fa-solid fa-floppy-disk" title="Save Note"></i>
+            </button>
+
+            <label for="imageInput" style="cursor:pointer;">
                 <i class="fa-solid fa-image" title="Insert image"></i>
-                <i class="fa-solid fa-bell" title="Notifications"></i>
-            </div>
+            </label>
+            
+            <input type="file" id="imageInput" accept="image/*" style="display: none;" onchange="insertImage(event)">
+
+            <i class="fa-solid fa-bell" title="Notifications"></i>
+        </div>
 
             <div class="editor-area">
                 <input id="noteTitle" class="title-input" placeholder="Title" required />
@@ -30,13 +36,12 @@
             </div>
 
             <div class="editor-footer">
-                @if($status === 'public')
-                <button type="button" id="linkBtn" class="link-btn" title="Share Link">
+                   @if($status === 'public')
+                <button  type="button" id="linkBtn" class="link-btn" title="Share Link">
                     <i class="fa-solid fa-link"></i>
                 </button>
                 @endif
-
-                <div class="toolbar" role="toolbar">
+                <div class="toolbar" role="toolbar" >
                     <button type="button" data-cmd="formatBlock" data-value="h1">H1</button>
                     <button type="button" data-cmd="formatBlock" data-value="h2">H2</button>
                     <button type="button" data-cmd="fontSize" data-value="3">Aa</button>
@@ -45,8 +50,12 @@
                     <button type="button" data-cmd="underline"><u>U</u></button>
                     <button type="button" data-cmd="strikeThrough"><i class="fa-solid fa-strikethrough"></i></button>
                 </div>
+
+
+              
+
             </div>
-        </div>
+        </div>  
     </form>
 
     @if($status === 'public')
@@ -104,6 +113,29 @@
                 }
             });
         })();
+
+       function insertImage(event) {
+    const file = event.target.files[0];
+    const editor = document.getElementById('editor'); // SESUAIKAN ID
+
+    if (file) {
+        // Validasi ukuran file (Opsional, misal max 2MB)
+        if (file.size > 2 * 1024 * 1024) {
+            alert("File terlalu besar! Maksimal 2MB.");
+            return;
+        }
+
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            const imgHtml = `<img src="${e.target.result}" style="max-width: 100%; border-radius: 8px; margin-top: 10px;" />`;
+            
+            // Masukkan gambar ke posisi kursor
+            editor.focus();
+            document.execCommand('insertHTML', false, imgHtml);
+        };
+        reader.readAsDataURL(file);
+    }
+}
     </script>
 </body>
 </html>

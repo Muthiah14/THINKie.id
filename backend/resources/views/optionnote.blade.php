@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Option - {{ config('app.name') }}</title>
+    <title>Option - {{ config('app.name') }} </title>
     
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
@@ -54,18 +54,18 @@
     </div>
 
     <div class="overlay" onclick="window.location.href='{{ url('/dashboard') }}'">
-        {{-- <div class="popup" onclick="event.stopPropagation()">
-            <a href="{{ url('/private-note') }}">
+        <div class="popup" onclick="event.stopPropagation()">
+            <a href="{{ route('note.private') }}">
                 <button class="btn btn-private">Private</button>
             </a>
-            <a href="{{ url('/public-note') }}">
+            <a href="{{ route('note.public') }}">
                 <button class="btn btn-public">Public</button>
             </a>
-        </div> --}}
-        <div class="popup-content">
+        </div>
+        {{-- <div class="popup-content">
             <a href="{{ route('note.private') }}" class="btn">Private</a>
             <a href="{{ route('note.public') }}" class="btn">Public</a>
-        </div>
+        </div> --}}
     </div>    <script>
         const overlay = document.getElementById('popupOverlay');
         const openBtn = document.getElementById('openPopup');
